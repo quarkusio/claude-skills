@@ -17,7 +17,9 @@ Search for the Java class across project dependencies: $ARGUMENTS
 
    # Rebuild index if missing or older than 7 days
    if [ ! -f "$INDEX" ] || [ $(find "$INDEX" -mtime +7 2>/dev/null | wc -l) -gt 0 ]; then
-     bash "$HOME/.claude/tools/build-class-index.sh"
+     # Index build can take a while — dispatch it as a subagent using the Agent tool:
+     # "Run: bash $HOME/.claude/tools/build-class-index.sh — report when done."
+     # Wait for the subagent to complete before searching.
    fi
 
    # Search the index (instant — just a grep on a text file)
@@ -46,7 +48,7 @@ Search for the Java class across project dependencies: $ARGUMENTS
    - The Maven coordinates (groupId:artifactId:version) extracted from the JAR path
 
 5. If no results are found:
-   - Try rebuilding the index: `bash "$HOME/.claude/tools/build-class-index.sh"`
+   - Try rebuilding the index via a subagent: `bash "$HOME/.claude/tools/build-class-index.sh"`
    - Check spelling
    - The dependency might not be in the local repo — suggest `mvn dependency:resolve`
    - Try a broader search pattern
