@@ -1,0 +1,158 @@
+{
+  "name": "quarkus-dev-skills",
+  "displayName": "Quarkus Development Skills",
+  "version": "1.0.0",
+  "description": "Platform-agnostic AI agent skills for Java/Quarkus development. Decompile classes, search classpaths, build modules, and view rich git diffs.",
+  "author": {
+    "name": "Quarkus Team",
+    "url": "https://quarkus.io"
+  },
+  "publisher": "quarkusio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quarkusio/quarkusdev-skills"
+  },
+  "homepage": "https://github.com/quarkusio/quarkusdev-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "quarkus",
+    "java",
+    "maven",
+    "decompiler",
+    "classpath",
+    "build",
+    "git",
+    "diff",
+    "development",
+    "jvm"
+  ],
+  "categories": [
+    "Development Tools",
+    "Java",
+    "Build Tools",
+    "Git"
+  ],
+  "platforms": [
+    "claude-code",
+    "gemini-cli",
+    "codex",
+    "all"
+  ],
+  "icon": "https://design.jboss.org/quarkus/logo/final/PNG/quarkus_icon_rgb_default.png",
+  "skills": [
+    {
+      "name": "java-decompile",
+      "displayName": "Java Class Decompiler",
+      "description": "Decompile Java classes from Maven dependencies using Vineflower. View library source code, method signatures, and implementation details.",
+      "path": "skills/java-decompile",
+      "categories": ["Java", "Development Tools"],
+      "tags": ["java", "decompiler", "vineflower", "jbang", "maven", "dependencies"]
+    },
+    {
+      "name": "java-classpath-search",
+      "displayName": "Java Classpath Search",
+      "description": "Search for Java classes across all Maven JARs. Find which dependency provides a class, detect version conflicts.",
+      "path": "skills/java-classpath-search",
+      "categories": ["Java", "Development Tools"],
+      "tags": ["java", "classpath", "maven", "search", "dependencies"]
+    },
+    {
+      "name": "quarkus-full-build",
+      "displayName": "Quarkus Full Build",
+      "description": "Run a full build of the Quarkus project via a subagent. Optimized with parallel compilation and test skipping.",
+      "path": "skills/quarkus-full-build",
+      "categories": ["Build Tools", "Quarkus"],
+      "tags": ["quarkus", "maven", "build", "compile"]
+    },
+    {
+      "name": "quarkus-module-build",
+      "displayName": "Quarkus Module Build",
+      "description": "Build specific Quarkus modules in parallel via subagents. Fast iteration on individual extensions.",
+      "path": "skills/quarkus-module-build",
+      "categories": ["Build Tools", "Quarkus"],
+      "tags": ["quarkus", "maven", "build", "modules", "parallel"]
+    },
+    {
+      "name": "git-diff-browser",
+      "displayName": "Git Diff Browser",
+      "description": "Rich, syntax-highlighted git diffs in browser. Supports unstaged, staged, branch comparisons, and live watch mode.",
+      "path": "skills/git-diff-browser",
+      "categories": ["Git", "Development Tools"],
+      "tags": ["git", "diff", "browser", "diff2html", "watch"]
+    }
+  ],
+  "tools": [
+    {
+      "name": "build-class-index.sh",
+      "description": "Build a searchable index of all classes in Maven local repository",
+      "path": "skills/java-classpath-search/build-class-index.sh",
+      "type": "bash",
+      "platforms": ["unix", "linux", "macos"]
+    },
+    {
+      "name": "diff-view.py",
+      "description": "Generate rich browser-based git diffs with live watch mode",
+      "path": "skills/git-diff-browser/diff-view.py",
+      "type": "python",
+      "platforms": ["all"],
+      "dependencies": {
+        "npm": ["diff2html-cli"]
+      }
+    }
+  ],
+  "dependencies": {
+    "runtime": {
+      "java": ">=8",
+      "maven": ">=3.6",
+      "git": ">=2.0",
+      "python": ">=3.6",
+      "jbang": ">=0.100.0"
+    },
+    "optional": {
+      "npm": {
+        "diff2html-cli": ">=5.0.0"
+      }
+    }
+  },
+  "installation": {
+    "npx": {
+      "all": "npx skills install github:quarkusio/quarkusdev-skills",
+      "individual": "npx skills install github:quarkusio/quarkusdev-skills/skills/{skill-name}"
+    },
+    "manual": {
+      "claude-code": "git clone https://github.com/quarkusio/quarkusdev-skills.git ~/.claude/skills/quarkus",
+      "gemini-cli": "git clone https://github.com/quarkusio/quarkusdev-skills.git ~/.agents/skills/quarkus",
+      "codex": "git clone https://github.com/quarkusio/quarkusdev-skills.git ~/codex/skills/quarkus"
+    },
+    "postInstall": [
+      "npm install -g diff2html-cli",
+      "mkdir -p ~/.cache/quarkusdev-skills"
+    ]
+  },
+  "documentation": {
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "contributing": "CONTRIBUTING.md"
+  },
+  "support": {
+    "issues": "https://github.com/quarkusio/quarkusdev-skills/issues",
+    "discussions": "https://github.com/quarkusio/quarkusdev-skills/discussions"
+  },
+  "screenshots": [],
+  "videos": [],
+  "badges": [
+    {
+      "label": "License",
+      "message": "Apache-2.0",
+      "color": "blue"
+    },
+    {
+      "label": "Platform",
+      "message": "Claude Code | Gemini CLI | Codex",
+      "color": "green"
+    }
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  }
+}

@@ -2,8 +2,11 @@
 # Build an index of all classes in all Maven JARs for fast searching
 # Output: tab-separated file with CLASS_PATH\tJAR_PATH
 
-INDEX_FILE="${1:-$HOME/.claude/tools/class-index.txt}"
+INDEX_FILE="${1:-$HOME/.cache/quarkusdev-skills/class-index.txt}"
 REPO_DIR="${2:-$HOME/.m2/repository}"
+
+# Ensure cache directory exists
+mkdir -p "$(dirname "$INDEX_FILE")"
 
 echo "Building class index from $REPO_DIR..." >&2
 
