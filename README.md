@@ -3,7 +3,7 @@
 
 > **Note**: This is a work in progress. Skill names and functionality will change as we iterate on them. The initial set is more to give ideas of what could be possible.
 
-Coding agent skills to use for developing on Quarkus itself NOT Quarkus users, see quarkusio/skills repo for those. These are intended to "standard" skills and thus works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [Codex](https://github.com/pchaganti/bx-step-agent), and other AI coding assistants supporting the [skills](https://agentskills.io/home) format.
+Coding agent skills to use for developing on Quarkus itself NOT Quarkus users, see [quarkus-skills](https://github.com/quarkusio/quarkus-skills) repo for those. These are intended to "standard" skills and thus works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [Codex](https://github.com/pchaganti/bx-step-agent), and other AI coding assistants supporting the [skills](https://agentskills.io/home) format.
 
 
 ## Quick Start
