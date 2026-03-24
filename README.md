@@ -1,4 +1,4 @@
-# Claude Skills
+# Quarkus Dev: Claude Skills
 
 Shared [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills for Java/Quarkus development.
 
